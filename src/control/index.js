@@ -29,10 +29,11 @@ module.exports = {
         }
         function nextthing (){
         let allRuns = tenor - 1;
+        let intrestearned = totals[allRuns] - totalSub;
         res.status(200).send({
             success: "success",
             totalsubscription : totalSub,
-            intrest: intEarned[allRuns],
+            intrest: intrestearned.toFixed(2),
             totalinvestment: totals[allRuns]
         })
     }
