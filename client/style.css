@@ -1,0 +1,96 @@
+body{
+            font-family: Arial, Helvetica, sans-serif;
+            margin:0;
+            padding: 0;
+        }
+        .hide{
+        	display:none;
+        }
+        .show{
+        	display:block;
+        }
+        .overlay{
+        	position:fixed;
+        	z-index:2;
+        	top:0;
+        	height:120%;
+        	width:100%;
+        	background:rgba(0,0,0,0.7)
+        	
+        }
+        .inshow{
+        	background:white;
+        	position:relative;
+        	padding:15px;
+        	margin-top:10px;
+        	width:calc(70% - 30px);
+        	min-height:350px;
+        	left:15%
+        }
+        header{
+            background: limegreen;
+            color: snow;
+            padding: 20px;
+            border-bottom: 5px solid black;
+        }
+        h5{
+        	float:none;
+        	clear:bothn
+        }
+        small{
+        	float:right;
+        }
+        header h1{
+            margin: 0;
+            text-align: center;
+        }
+        section{
+            padding : 20px;
+
+        }
+        input{
+            width:80%;
+            margin:10px;
+            padding:15px;
+            border-style: none;
+            border-bottom: 2px solid limegreen;
+
+        }
+        button{
+            padding: 15px;
+            min-width: 100px;
+            text-transform: uppercase;
+            color:limegreen;
+            border-style: none;
+            border-radius: 70px;
+            border:3px solid limegreen;
+            font-weight: 600;
+            background: white;
+        }
+        button:hover{
+            background: limegreen;
+            color:whitesmoke;
+        }
+        .fleft{
+            width:50%;
+            float:left;
+        }
+        #result{
+            height: 350px;
+            border-left:3px solid black;
+            width:calc(50% - 43px);
+        }
+        #result{
+            padding:20px;
+        }
+        @media screen and (max-width: 600px){
+        	 #result{
+        	 	height:10px;
+        	 	display:none;
+        	 }
+        	 .fleft{
+            width:100%;
+            float:none;
+            clear:both;
+        }
+}

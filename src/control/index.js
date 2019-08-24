@@ -4,7 +4,6 @@ module.exports = {
         let { sub,tenor,intr } =  req.body;
         let totalSub = Number(sub * tenor);
         let percent = intr/100;
-        console.log(sub);
         let returns;
         let totals = [];
         let intEarned = [];

@@ -5,64 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Simple Investment Calculator</title>
-    <style>
-        body{
-            font-family: Arial, Helvetica, sans-serif;
-            margin:0;
-            padding: 0;
-        }
-        header{
-            background: limegreen;
-            color: snow;
-            padding: 20px;
-            border-bottom: 5px solid black;
-        }
-        header h1{
-            margin: 0;
-            text-align: center;
-        }
-        section{
-            padding : 20px;
-
-        }
-        input{
-            width:80%;
-            margin:10px;
-            padding:15px;
-            border-style: none;
-            border-bottom: 2px solid limegreen;
-
-        }
-        button{
-            padding: 15px;
-            min-width: 100px;
-            text-transform: uppercase;
-            color:limegreen;
-            border-style: none;
-            border-radius: 70px;
-            border:3px solid limegreen;
-            font-weight: 600;
-            background: white;
-        }
-        button:hover{
-            background: limegreen;
-            color:whitesmoke;
-        }
-        .fleft{
-            width:50%;
-            float:left;
-        }
-        #result{
-            min-height: 350px;
-            border-left:3px solid black;
-            width:calc(50% - 3px);
-        }
-        #result table{
-            padding:20px;
-        }
-        
-        
-    </style>
+    <link rel="stylesheet" href="style.css">
     <script src="client.js"></script>
 </head>
 <body>
@@ -74,36 +17,33 @@
         <div class="fleft">
         <center>
             <form onsubmit="return calcit()" >
-            <input type="number" placeholder="Subscription Plan" id="subinput"><br>
-            <input type="number" placeholder="Tenor (in months)" id="tenorinput"><br>
-            <input type="number" placeholder="Intrest rate (numbers only)" id="intrestinput"><br>
+            <input required type="number" placeholder="Subscription Plan" id="subinput"><br>
+            <input required type="number" placeholder="Tenor (in months)" id="tenorinput"><br>
+            <input required type="number" placeholder="Intrest rate (numbers only)" id="intrestinput"><br>
             <br>&nbsp;<br>
-            <button>calculate</button>
+            <button id="subbut">calculate</button>
         </form>
         </center>
     </div>
     <div id="result" class="fleft" >
-        <table>
-            <tr>
-                <th colspan="2">RESULT</th>
-            </tr>
-            <tr class="trspace">
-                <td>Total Subscription:</td>
-                <td><div id="tsub"></div></td>
-            </tr>
-            <tr>
-                    <td>Total Intrest Earned:</td>
-                    <td><div id="tint"></div></td>
-            </tr>
-            <tr>
-                    <td>Total Investment:</td>
-                    <td><div id="tinv"></div></td>
-            </tr>
-        </table>
+       <h3>Result</h3><hr/>
+    		<h5>Total Subscription &nbsp; &nbsp;  &nbsp; &nbsp; <small id="tsub"></small></h5>
+    		<h5>Total Intrest Earned &nbsp; &nbsp;  &nbsp; &nbsp; <small id="tint"></small></h5>
+    		<h5>Total Investment &nbsp; &nbsp;  &nbsp; &nbsp; <small id="tinv"></small></h5>
 
     </div>
 
     </section>
+    <div id="lay" class="hide overlay">
+    	<div class="inshow">
+    		<h3>Result </h3><hr/>
+    		<h5>Total Subscription &nbsp; &nbsp;  &nbsp; &nbsp; <small id="ttsub"></small></h5>
+    		<h5>Total Intrest Earned &nbsp; &nbsp;  &nbsp; &nbsp; <small id="ttint"></small></h5>
+    		<h5>Total Investment &nbsp; &nbsp;  &nbsp; &nbsp; <small id="ttinv"></small></h5>
+    		<br><br>
+    			<center><h3><span style="cursor:pointer" onClick="closed()">&times;</span></h3></center>
+    	</div>
+    </div>
     
 </body>
 </html>
