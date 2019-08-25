@@ -27,13 +27,24 @@ module.exports = {
 
 
         }
+        
+        	
+        
         function nextthing (){
         let allRuns = tenor - 1;
-        let intrestearned = totals[allRuns] - totalSub;
+        let pound = percent + 1;
+        
+        pound = Math.pow(pound, tenor)
+        	
+        	
+        	
+        	pound *= sub;
+        	pound -= sub;
+        	
         res.status(200).send({
             success: "success",
             totalsubscription : totalSub,
-            intrest: intrestearned.toFixed(2),
+            intrest: pound.toFixed(2),
             totalinvestment: totals[allRuns]
         })
     }
