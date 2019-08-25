@@ -32,14 +32,16 @@ module.exports = {
         
         function nextthing (){
         let allRuns = tenor - 1;
-        let pound = percent + 1;
+       /* let pound = percent;
+         pound += 1;
         
         pound = Math.pow(pound, tenor)
         	
         	
         	
         	pound *= sub;
-        	pound -= sub;
+        	pound -= sub;*/
+        	let pound = totals[allRuns] - totalSub;
         	
         res.status(200).send({
             success: "success",
