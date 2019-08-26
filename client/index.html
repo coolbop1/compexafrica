@@ -17,6 +17,18 @@
         <div class="fleft">
         <center>
             <form onsubmit="return calcit()" >
+            	<label>Percentage Yield Type </label><br/><br/>
+            	<div class="fnone">
+            	<table style="width:100%" class="fleft">
+            		<tr>
+            			<td>
+            	Monthly<input type="radio" name="interestrate"  class="interettype" value="mpy" checked ></td>
+            	 <td>
+            Annual Percentage Yield(APY)<input id="sec" type="radio" name="interestrate" class="interettype" value="apy" >
+            	</td>
+            	</tr>
+            	</table>
+            	</div>
             <input required type="number" placeholder="Subscription Plan" id="subinput"><br>
             <input required type="number" placeholder="Tenor (in months)" id="tenorinput"><br>
             <input required type="number" placeholder="Intrest rate (numbers only)" id="intrestinput"><br>

@@ -3,10 +3,19 @@ function calcit(){
    let thesub = document.getElementById("subinput").value;
    let thetenor = document.getElementById("tenorinput").value;
    let theinterest = document.getElementById("intrestinput").value;
+   let x = document.getElementsByName("interestrate");
+let i;
+let actionPath;
+for (i = 0; i < x.length; i++) {
+  if (x[i].checked == true) {
+			actionPath = x[i].value;
+
+  }
+}
    subbut.innerHTML = "Loading.....";
    fetch("/calculate",{
        method:"POST",
-       body:JSON.stringify({"sub" : thesub,"tenor" : thetenor, "intr" : theinterest}),
+       body:JSON.stringify({"sub" : thesub,"tenor" : thetenor, "intr" : theinterest, "action" : actionPath}),
 	    headers:new Headers({"Content-Type":"application/json; charset=UTF-8"}),
    })
     .then((res)=>res.json())
@@ -16,16 +25,16 @@ function calcit(){
         	let showresult = document.getElementById("result");
         	const stylez = getComputedStyle(showresult)
         	if(stylez.display != "none" ){
-            document.getElementById("tsub").innerHTML = data.totalsubscription;
-            document.getElementById("tint").innerHTML = data.intrest;
-            document.getElementById("tinv").innerHTML = data.totalinvestment;
+            document.getElementById("tsub").innerHTML = data.totalsubscription.toLocaleString('en-US', { style: 'currency', currency: 'USD' }).replace("$","&#8358; ");
+            document.getElementById("tint").innerHTML = data.intrest.toLocaleString('en-US', { style: 'currency', currency: 'USD' }).replace("$","&#8358; ");
+            document.getElementById("tinv").innerHTML = data.totalinvestment.toLocaleString('en-US', { style: 'currency', currency: 'USD' }).replace("$","&#8358; ");
             subbut.innerHTML = "calculate";
             }else{
             	
             	document.getElementById("lay").classList.replace("hide","show")
-            	document.getElementById("ttsub").innerHTML = data.totalsubscription;
-            document.getElementById("ttint").innerHTML = data.intrest;
-            document.getElementById("ttinv").innerHTML = data.totalinvestment;
+            	document.getElementById("ttsub").innerHTML = data.totalsubscription.toLocaleString('en-US', { style: 'currency', currency: 'USD' }).replace("$","&#8358; ");
+            document.getElementById("ttint").innerHTML = data.intrest.toLocaleString('en-US', { style: 'currency', currency: 'USD' }).replace("$","&#8358; ");
+            document.getElementById("ttinv").innerHTML = data.totalinvestment.toLocaleString('en-US', { style: 'currency', currency: 'USD' }).replace("$","&#8358; ");
             subbut.innerHTML = "calculate";
             }
         }

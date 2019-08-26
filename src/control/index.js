@@ -1,9 +1,15 @@
 module.exports = {
     runinvest : (req,res) => {
         
-        let { sub,tenor,intr } =  req.body;
+        let { sub,tenor,intr,action } =  req.body;
         let totalSub = Number(sub * tenor);
-        let percent = intr/100;
+        let percent;
+        if(action == "apy"){
+        	percent = intr/12
+        }else{
+        	percent = intr;
+        }
+        percent /= 100;
         let returns;
         let totals = [];
         let intEarned = [];
@@ -18,7 +24,7 @@ module.exports = {
             let currentInt = percent * Number(currentRunning);
             let currentBalance = Number(currentRunning) + Number(currentInt);
             
-            totals.push(currentBalance.toFixed(2));
+            totals.push(currentBalance);
             //console.log(returns);
             intEarned.push(currentInt.toFixed(2));
             if(v== tenor){
@@ -46,7 +52,7 @@ module.exports = {
         res.status(200).send({
             success: "success",
             totalsubscription : totalSub,
-            intrest: pound.toFixed(2),
+            intrest: pound,
             totalinvestment: totals[allRuns]
         })
     }
